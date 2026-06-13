@@ -611,7 +611,7 @@ function OurPartnersSlider({ onApply }) {
     <section className="our-partners-section">
       <style>{`
         .our-partners-section {
-          background: linear-gradient(160deg, #0a144a 0%, #13205e 60%, #0e1c55 100%);
+          background: #ffffff;
           padding: 70px 20px 60px;
           position: relative;
           overflow: hidden;
@@ -627,14 +627,14 @@ function OurPartnersSlider({ onApply }) {
         }
         .partners-heading {
           text-align: center;
-          color: #fff;
+          color: var(--color-primary);
           font-size: clamp(1.8rem, 3vw, 2.4rem);
           font-weight: 800;
           margin-bottom: 8px;
         }
         .partners-sub {
           text-align: center;
-          color: rgba(255,255,255,0.65);
+          color: #555;
           font-size: 1rem;
           margin-bottom: 44px;
         }
@@ -646,8 +646,8 @@ function OurPartnersSlider({ onApply }) {
           margin: 0 auto;
         }
         .partner-card-v2 {
-          background: rgba(255,255,255,0.07);
-          border: 1px solid rgba(255,255,255,0.14);
+          background: #1C2256;
+          border: 1px solid #1C2256;
           border-radius: 20px;
           overflow: hidden;
           display: flex;
