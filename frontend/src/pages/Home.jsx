@@ -88,7 +88,7 @@ function MainSlider() {
         .bsw.bsw-on { position: relative; opacity: 1; pointer-events: auto; }
         .bsw-img {
           width: 100%;
-          height: 580px;
+          height: 420px;
           object-fit: cover;
           display: block;
           transition: transform 7s ease;

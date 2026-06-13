@@ -36,9 +36,9 @@ export default function Header() {
     <header className="header">
       <div className="container nav">
         {/* LOGO */}
-        <Link to="/" className="logo" onClick={handleLinkClick}>
-          <img src="/assets/images/logo.png" alt="MeraDigitalPay" />
-          <span>Mera <span className="brand">Digital Pay DAUDEGA</span></span>
+        <Link to="/" className="logo" onClick={handleLinkClick} style={{ gap: '12px' }}>
+          <img src="/assets/images/footer-logo.jpg" alt="MeraDigitalPay" style={{ borderRadius: '8px', height: '42px' }} />
+          <span style={{ fontSize: '22px', fontWeight: '800', letterSpacing: '0.5px' }}>Mera <span className="brand" style={{ fontWeight: '800' }}>Digital Pay DAUDEGA</span></span>
         </Link>
 
         {/* MOBILE TOGGLE */}
