@@ -1,0 +1,23 @@
+<?php include 'includes/header.php'; ?>
+
+<section class="service-page">
+  <div class="container service-grid">
+    <div class="service-text">
+      <h1>Mobile & DTH Recharge</h1>
+      <p>
+        Recharge prepaid mobile and DTH connections instantly
+        for all major operators.
+      </p>
+      <ul>
+        <li>Mobile Recharge</li>
+        <li>DTH Recharge</li>
+        <li>Fast & Secure</li>
+      </ul>
+    </div>
+    <div class="service-image">
+      <img src="assets/images/utility.png">
+    </div>
+  </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

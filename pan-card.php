@@ -1,0 +1,18 @@
+<?php
+$page_title = "PAN Card Services";
+$page_desc  = "Apply for new PAN card or make corrections easily through Mera Digital Pay.";
+$page_about = "PAN Card service allows customers to apply for a new PAN card, correction in existing PAN or download e-PAN digitally. Retailers can provide PAN related services quickly and earn commission on every successful application.";
+
+$page_image = "assets/images/egov.png";
+
+$points = [
+  "New PAN Card Application",
+  "PAN Card Correction",
+  "e-PAN Download",
+  "Aadhaar Based KYC",
+  "Fast Processing",
+  "Retailer Commission on Every PAN"
+];
+
+include 'service-template.php';
+?>

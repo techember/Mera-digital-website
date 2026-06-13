@@ -1,0 +1,18 @@
+<?php
+$page_title = "ONDC Seller Registration";
+$page_desc  = "Register your business on ONDC and sell through open digital network.";
+$page_about = "ONDC Seller Registration service enables local sellers and businesses to join the Open Network for Digital Commerce. It helps sellers expand their reach without depending on a single marketplace.";
+
+$page_image = "assets/images/business.png";
+
+$points = [
+  "ONDC Seller Onboarding",
+  "Government Supported Platform",
+  "Lower Commission Structure",
+  "Increased Local Visibility",
+  "Simple Digital Registration",
+  "Future Ready Business Model"
+];
+
+include 'service-template.php';
+?>

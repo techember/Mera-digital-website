@@ -1,0 +1,18 @@
+<?php
+$page_title = "MSME / UDYAM Registration";
+$page_desc  = "Register small and medium businesses under UDYAM (MSME).";
+$page_about = "MSME (UDYAM) Registration service helps small and medium enterprises get government recognition and benefits. Retailers can help business owners complete UDYAM registration easily.";
+
+$page_image = "assets/images/egov.png";
+
+$points = [
+  "UDYAM / MSME Registration",
+  "Government Recognition",
+  "Access to Government Schemes",
+  "No Registration Fee",
+  "Quick Online Process",
+  "Retailer Commission"
+];
+
+include 'service-template.php';
+?>

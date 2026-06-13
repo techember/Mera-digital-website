@@ -1,0 +1,1416 @@
+<%- include('includes/header') %>
+<style>
+    video {
+    height: 700px;
+    width: 100%;
+    object-fit: fill;
+}
+
+.feature-section{
+  padding: 80px 0;
+}
+
+.feature-section.light{
+  background:#f7f9fb;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.feature-grid.reverse{
+  direction:rtl;
+}
+.feature-grid.reverse > *{
+  direction:ltr;
+}
+
+.feature-image img{
+  max-width:320px;
+  width:100%;
+  border-radius:22px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+.feature-content h2{
+  font-size:32px;
+  margin-bottom:15px;
+}
+
+.feature-content p{
+  color:#555;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.feature-content ul{
+  list-style:none;
+  padding:0;
+  margin-bottom:25px;
+}
+
+.feature-content ul li{
+  margin-bottom:10px;
+  padding-left:26px;
+  position:relative;
+}
+
+.feature-content ul li::before{
+  content:"✔";
+  position:absolute;
+  left:0;
+  color:#0a7c6a;
+}
+
+.cta-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#0a7c6a,#14b8a6);
+  color:#fff;
+  padding:13px 28px;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.btn-outline{
+  border:2px solid #0a7c6a;
+  color:#0a7c6a;
+  padding:13px 26px;
+  border-radius:30px;
+  font-weight:600;
+}
+
+.company-documents{
+  padding:80px 0;
+  background:#f9fafb;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:40px;
+}
+
+/* Slider */
+.doc-slider{
+  position:relative;
+  overflow:hidden;
+}
+
+.doc-track{
+  display:flex;
+  transition:transform 0.5s ease;
+}
+
+.doc-item{
+  min-width:260px;
+  margin:0 15px;
+}
+
+.doc-item img{
+  width:100%;
+  height:340px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+  cursor:pointer;
+}
+
+/* Arrows */
+.doc-prev,.doc-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#000;
+  color:#fff;
+  border:none;
+  padding:12px 16px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:2;
+}
+
+.doc-prev{ left:-10px; }
+.doc-next{ right:-10px; }
+
+/* Modal Zoom */
+.doc-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.doc-modal img{
+  max-width:90%;
+  max-height:90%;
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+}
+
+.doc-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .doc-item{
+    min-width:80%;
+  }
+}
+.our-staff{
+  padding:80px 0;
+  background:#f7f9fb;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:35px;
+}
+
+/* Wrapper */
+.staff-wrapper{
+  position:relative;
+}
+
+/* REAL SCROLL AREA */
+.staff-scroll{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:10px 5px 20px;
+}
+
+/* Hide scrollbar but keep scroll */
+.staff-scroll::-webkit-scrollbar{
+  height:6px;
+}
+.staff-scroll::-webkit-scrollbar-thumb{
+  background:#ccc;
+  border-radius:10px;
+}
+
+/* Card */
+.staff-card{
+  flex:0 0 auto;              /* VERY IMPORTANT */
+  width:220px;
+  background:#fff;
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.staff-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+.staff-card h4{
+  margin:12px 0 4px;
+  font-weight:700;
+}
+
+.staff-card span{
+  font-size:14px;
+  color:#777;
+}
+
+/* Buttons */
+.staff-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#000;
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:2;
+}
+
+.staff-btn.left{ left:-15px; }
+.staff-btn.right{ right:-15px; }
+
+/* Mobile */
+@media(max-width:768px){
+  .staff-card{
+    width:75%;
+  }
+}
+.success-rate{
+  padding:80px 0;
+  background:#f7f9fb;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.section-sub{
+  text-align:center;
+  color:#666;
+  margin-bottom:40px;
+}
+
+/* Grid */
+.rate-grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px 40px;
+}
+
+/* Item */
+.rate-item{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.rate-item span{
+  width:180px;
+  font-weight:600;
+}
+
+.rate-item strong{
+  width:55px;
+  text-align:right;
+}
+
+/* Progress bar */
+.bar{
+  flex:1;
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#0a7c6a,#14b8a6);
+  border-radius:20px;
+  transition:width 1.5s ease;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .rate-grid{
+    grid-template-columns:1fr;
+  }
+  .rate-item span{
+    width:140px;
+  }
+}
+.cta{
+  padding:90px 0;
+  background:linear-gradient(135deg,#0a7c6a,#14b8a6);
+  color:#fff;
+  text-align:center;
+}
+
+.cta-box{
+  max-width:800px;
+  margin:auto;
+}
+
+.cta h2{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:15px;
+  line-height:1.3;
+}
+
+.cta h2 span{
+  color:#ffeaa7;
+}
+
+.cta p{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:35px;
+  opacity:0.95;
+}
+
+.cta .btn-primary{
+  background:#fff;
+  color:#0a7c6a;
+  padding:15px 36px;
+  border-radius:40px;
+  font-size:18px;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.25);
+  transition:.3s;
+}
+
+.cta .btn-primary:hover{
+  transform:translateY(-4px);
+  background:#f1f1f1;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .cta h2{
+    font-size:30px;
+  }
+  .cta p{
+    font-size:16px;
+  }
+}
+
+</style>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+
+    <!-- LEFT : VIDEO -->
+    <div class="hero-video">
+      <video autoplay muted loop controls>
+        <source src="assets/videos/demo.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+
+    <!-- RIGHT : CONTENT -->
+    <div class="hero-content">
+      <h1>
+        Launch Your Customised App With <span>MERA DIGITAL APS</span>
+      </h1>
+
+      <p>
+        Most Secure, Faster & Smarter Solution.  
+        MERA DIGITAL APS offers a wide range of financial services through
+        <strong>RESELLERS / B2B / B2C Platforms, API & SDKs</strong>.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openDemo()">
+          <i class="fa fa-video"></i> Book a Live Demo
+        </button>
+
+        <!-- <a href="#" class="btn-outline">
+          <i class="fa fa-download"></i> Download App
+        </a> -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="main-slider">
+  <div class="slider">
+
+    <!-- SLIDE 1 -->
+    <div class="slide active">
+      <div class="container slide-grid">
+        <div class="slide-content">
+          <h1>One App, Multiple Digital Services</h1>
+          <p>
+            AEPS, Money Transfer, Recharge, BBPS, Travel, Insurance & more
+            with <strong>Mera Digital APS</strong>.
+          </p>
+          <a href="services.php" class="btn-primary">Explore Services</a>
+        </div>
+        <div class="slide-media">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2023/5/310303189/JN/NA/QM/126985553/aeps-aadhaar-enabled-payment-system-distributor-id.jpg" alt="Digital Services">
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+      <div class="container slide-grid">
+        <div class="slide-content">
+          <h1>Launch Your Customised Fintech App</h1>
+          <p>
+            White Label | B2B | B2C | API & SDK solutions  
+            Secure, Faster & Smarter Platform.
+          </p>
+          <button class="btn-primary" onclick="openDemo()">Book Live Demo</button>
+        </div>
+        <div class="slide-media">
+          <img src="https://himanidigital.in/assets/img/aeps.jpg" alt="White Label Platform">
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+      <div class="container slide-grid">
+        <div class="slide-content">
+          <h1>Earn More With Mera Digital APS</h1>
+          <p>
+            High commission on Banking, Government & Utility services.  
+            Grow your digital business today.
+          </p>
+          <a href="income-calculator.php" class="btn-primary">Calculate Income</a>
+        </div>
+        <div class="slide-media">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/994/169/non_2x/icon-of-all-banking-services-cash-operations-payment-cards-icon-set-and-web-header-banner-illustration-vector.jpg" alt="Earn More">
+        </div>
+      </div>
+    </div>
+
+    <!-- DOTS -->
+    <div class="slider-nav">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+    </div>
+
+    <!-- ARROWS -->
+    <button class="prev" onclick="changeSlide(-1)">❮</button>
+    <button class="next" onclick="changeSlide(1)">❯</button>
+
+  </div>
+</section>
+
+
+<!-- ================= SERVICE TABS ================= -->
+<section class="service-tabs-section">
+
+  <div class="service-tabs">
+    <button class="tab-btn active" onclick="openTab('banking')">
+      <i class="fa-solid fa-building-columns"></i> Banking Services
+    </button>
+    <button class="tab-btn" onclick="openTab('utility')">
+      <i class="fa-solid fa-bolt"></i> Utility & Bill Payments
+    </button>
+    <button class="tab-btn" onclick="openTab('insurance')">
+      <i class="fa-solid fa-shield-halved"></i> Insurance
+    </button>
+    <button class="tab-btn" onclick="openTab('travel')">
+      <i class="fa-solid fa-plane-departure"></i> Travel Services
+    </button>
+    <button class="tab-btn" onclick="openTab('egov')">
+      <i class="fa-solid fa-id-card"></i> E-Governance
+    </button>
+    <button class="tab-btn" onclick="openTab('neo')">
+      <i class="fa-solid fa-wallet"></i> Neo Banking
+    </button>
+  </div>
+
+  <div class="container">
+
+    <!-- BANKING -->
+    <div class="tab-content active" id="banking">
+      <div class="tab-grid">
+        <img src="assets/images/banking.png">
+        <div>
+          <h2><i class="fa-solid fa-university"></i> Banking Services</h2>
+          <p>
+            Mera Digital APS provides AEPS, Money Transfer, Micro ATM and Aadhaar Pay
+            services with high commission on every transaction.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-hand-holding-dollar"></i> AEPS – Cash Withdrawal</li>
+            <li><i class="fa-solid fa-right-left"></i> Money Transfer (DMT)</li>
+            <li><i class="fa-solid fa-credit-card"></i> Micro ATM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- UTILITY -->
+    <div class="tab-content" id="utility">
+      <div class="tab-grid">
+        <img src="assets/images/utility.png">
+        <div>
+          <h2><i class="fa-solid fa-bolt"></i> Utility & Bill Payments</h2>
+          <p>
+            With Mera Digital APS, offer fast recharge and bill payment services.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-mobile"></i> Mobile & DTH Recharge</li>
+            <li><i class="fa-solid fa-file-invoice"></i> Electricity & Gas Bill</li>
+            <li><i class="fa-solid fa-building-columns"></i> BBPS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSURANCE -->
+    <div class="tab-content" id="insurance">
+      <div class="tab-grid">
+        <img src="assets/images/insurance.webp">
+        <div>
+          <h2><i class="fa-solid fa-shield-halved"></i> Insurance Services</h2>
+          <p>
+            Sell insurance through Mera Digital APS and earn fixed commission.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-heart-pulse"></i> Health Insurance</li>
+            <li><i class="fa-solid fa-car"></i> Motor Insurance</li>
+            <li><i class="fa-solid fa-mobile-screen"></i> Device Insurance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAVEL -->
+    <div class="tab-content" id="travel">
+      <div class="tab-grid">
+        <img src="assets/images/travel.webp">
+        <div>
+          <h2><i class="fa-solid fa-plane"></i> Travel Services</h2>
+          <p>
+            Book travel tickets easily with Mera Digital APS.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-train"></i> IRCTC Ticket Booking</li>
+            <li><i class="fa-solid fa-bus"></i> Bus & Flight Booking</li>
+            <li><i class="fa-solid fa-hotel"></i> Hotel Booking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-GOV -->
+    <div class="tab-content" id="egov">
+      <div class="tab-grid">
+        <img src="assets/images/egov.jpg">
+        <div>
+          <h2><i class="fa-solid fa-id-card"></i> E-Governance Services</h2>
+          <p>
+            Government digital services powered by Mera Digital APS.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-address-card"></i> PAN Card</li>
+            <li><i class="fa-solid fa-file-signature"></i> GST Registration</li>
+            <li><i class="fa-solid fa-file-lines"></i> ITR Filing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEO -->
+    <div class="tab-content" id="neo">
+      <div class="tab-grid">
+        <img src="assets/images/neo.webp">
+        <div>
+          <h2><i class="fa-solid fa-wallet"></i> Neo Banking</h2>
+          <p>
+            Modern digital banking solutions by Mera Digital APS.
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-user-plus"></i> Account Opening</li>
+            <li><i class="fa-solid fa-qrcode"></i> UPI & Cards</li>
+            <li><i class="fa-solid fa-sack-dollar"></i> Loan Services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="benefits">
+  <div class="container">
+    <h2><i class="fa-solid fa-gift"></i> Benefits of Mera Digital APS</h2>
+    <p class="sub">
+      A great earning potential with minimal investment and zero working capital
+    </p>
+
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <i class="fa-solid fa-lock fa-2x"></i>
+        <h4>Safe & Secure</h4>
+        <p>Your transactions are fully secure.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-bolt-lightning fa-2x"></i>
+        <h4>Fast & Easy</h4>
+        <p>Quick services with minimum clicks.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-headset fa-2x"></i>
+        <h4>24/7 Support</h4>
+        <p>Always available for your help.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-percent fa-2x"></i>
+        <h4>High Margin</h4>
+        <p>Best commission on every service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ONE APP MULTIPLE SERVICES ================= -->
+<section class="one-app">
+  <div class="container">
+    <h2 class="section-title">
+      <i class="fa-solid fa-layer-group"></i>
+      One App, Multiple Services
+    </h2>
+    <p class="section-sub">
+      Manage all your Digital, Banking & Business services in one powerful platform
+    </p>
+
+    <div class="services-grid">
+
+      <!-- BANKING -->
+      <div class="service-box">
+        <i class="fa-solid fa-building-columns"></i>
+        <h4>AEPS</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-fingerprint"></i>
+        <h4>Aadhaar Pay</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-money-bill-transfer"></i>
+        <h4>Money Transfer</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-credit-card"></i>
+        <h4>Micro ATM</h4>
+      </div>
+
+      <!-- UTILITY -->
+      <div class="service-box">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <h4>Recharge</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-file-invoice"></i>
+        <h4>Bill Payments</h4>
+      </div>
+
+      <!-- GOVERNMENT -->
+      <div class="service-box">
+        <i class="fa-solid fa-id-card"></i>
+        <h4>PAN Card</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-receipt"></i>
+        <h4>Taxation</h4>
+      </div>
+
+      <!-- TRAVEL -->
+      <div class="service-box">
+        <i class="fa-solid fa-bus"></i>
+        <h4>Bus Booking</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-plane"></i>
+        <h4>Flight Booking</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-train"></i>
+        <h4>IRCTC</h4>
+      </div>
+
+      <!-- BUSINESS / BC -->
+      <div class="service-box">
+        <i class="fa-solid fa-briefcase"></i>
+        <h4>Kotak BC</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-landmark"></i>
+        <h4>NSDL BC</h4>
+      </div>
+
+      <!-- SELLER -->
+      <div class="service-box">
+        <i class="fa-solid fa-store"></i>
+        <h4>Flipkart Seller</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-brands fa-amazon"></i>
+        <h4>Amazon Seller</h4>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-network-wired"></i>
+        <h4>ONDC Seller</h4>
+      </div>
+
+      <!-- SHOPPING -->
+      <div class="service-box">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h4>Shopping Services</h4>
+      </div>
+
+      <!-- CMS -->
+      <div class="service-box">
+        <i class="fa-solid fa-wifi"></i>
+        <h4>CMS</h4>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= BECOME A PART OF US ================= -->
+
+
+<!-- ================= ADVANTAGES ================= -->
+<section class="advantages">
+  <div class="container">
+
+    <h2 class="section-title">
+      <i class="fa-solid fa-star"></i>
+      Advantages of <span>Mera Digital APS</span>
+    </h2>
+    <p class="section-sub">
+      Grow your digital business with powerful, secure and profitable services
+    </p>
+
+    <div class="adv-grid">
+
+      <div class="adv-card">
+        <i class="fa-solid fa-rocket"></i>
+        <h4>Zero Investment Business</h4>
+        <p>Start your digital service business with minimal setup cost.</p>
+      </div>
+
+      <div class="adv-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h4>Secure Platform</h4>
+        <p>Bank-grade security with reliable and safe transactions.</p>
+      </div>
+
+      <div class="adv-card">
+        <i class="fa-solid fa-layer-group"></i>
+        <h4>All Services in One App</h4>
+        <p>AEPS, Recharge, Bill Payment, Travel & more in one platform.</p>
+      </div>
+
+      <div class="adv-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h4>High Earning Potential</h4>
+        <p>Earn commission on every transaction done by you.</p>
+      </div>
+
+      <div class="adv-card">
+        <i class="fa-solid fa-user-shield"></i>
+        <h4>Trusted by Retailers</h4>
+        <p>Trusted by thousands of retailers across India.</p>
+      </div>
+
+      <div class="adv-card">
+        <i class="fa-solid fa-headset"></i>
+        <h4>24/7 Support</h4>
+        <p>Dedicated support team to help you anytime.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="container">
+
+    <h2 class="section-title">
+      <i class="fa-solid fa-quote-left"></i>
+      What Our Partners Say
+    </h2>
+    <p class="section-sub">
+      Real experiences from retailers & distributors using Mera Digital APS
+    </p>
+
+    <div class="testimonial-slider">
+
+      <div class="testimonial-track">
+
+        <div class="testimonial-card">
+          <p>mera digital APS company is having a really really great online services platform and the service are very good</p>
+          <h4>Raman Singh</h4>
+          <span>Rajasthan</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>mera digital APS it is the best and trusted finance company which will help to fulfill the aim and dreams of customer 💯</p>
+          <h4>Chaman Singh</h4>
+          <span>Bareilly</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>mera digital APS company is having a really really great online services platform and the service are very good. Using from last 1 year 💯💯💯💯💯</p>
+          <h4>Alisha Gupta</h4>
+          <span>Mumbai</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Digital partner pay app is very useful for everyone. We can earn lot of money and build a great career. Thank you Mera Digital APS ✨️✨️✨️✨️✨️</p>
+          <h4>Abhay Singh</h4>
+          <span>Aligarh, Uttar Pradesh</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Mera Digital APS is a good brand you can rely on. Their mobile application truly creates wonders. Good job team ✨️✨️✨️✨️✨️</p>
+          <h4>Nihal Singh</h4>
+          <span>Patna, Bihar</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Best customer care facilities and one of the best ways to track investments. Really loved it. Thank you team Mera Digital APS</p>
+          <h4>Chirag Singh</h4>
+          <span>Nainital</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Very good financial services and a great team of experts to help you. Thank you Mera Digital APS</p>
+          <h4>Anurag Sharma</h4>
+          <span>Rishikesh</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Mera Digital APS is a trusted fintech company offering secure and fast services like AEPS, recharge, DMT etc. Highly recommended!</p>
+          <h4>Vaishnav Singh</h4>
+          <span>Katra, Jammu</span>
+        </div>
+
+        <div class="testimonial-card">
+          <p>Pleased with Mera Digital APS and its services. One of the most exceptional platforms. Thank you team Mera Digital APS</p>
+          <h4>Shubham Sharma</h4>
+          <span>Gujarat</span>
+        </div>
+
+      </div>
+
+      <!-- Arrows -->
+      <button class="ts-prev">❮</button>
+      <button class="ts-next">❯</button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="feature-section">
+  <div class="container feature-grid">
+
+    <div class="feature-image">
+      <img src="assets/images/scr2.jpeg" alt="AEPS Services">
+    </div>
+
+    <div class="feature-content">
+      <h2>AEPS & Banking Services</h2>
+      <p>
+        Mera Digital APS ke through AEPS Cash Withdrawal, Balance Enquiry
+        aur Mini Statement jaise banking services ek hi app me provide karein.
+      </p>
+
+      <ul>
+        <li>Cash Withdrawal & Aadhaar Pay</li>
+        <li>Mini Statement & Balance Enquiry</li>
+        <li>Fast, Secure & Reliable Transactions</li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="apply-online.php" class="btn-primary">Apply Online</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+           class="btn-outline" target="_blank">
+          <i class="fa-brands fa-google-play"></i> Download App
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="feature-section light">
+  <div class="container feature-grid reverse">
+
+    <div class="feature-image">
+      <img src="assets/images/scr3.jpeg" alt="Seller Registration">
+    </div>
+
+    <div class="feature-content">
+      <h2>Seller Registration Services</h2>
+      <p>
+        Amazon, Flipkart, ONDC aur Kotak Bank BC jaise seller & business
+        services ek hi digital platform par.
+      </p>
+
+      <ul>
+        <li>Amazon & Flipkart Seller Registration</li>
+        <li>ONDC Seller & Delivery Job Apply</li>
+        <li>Zero Investment Business Opportunity</li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="apply-online.php" class="btn-primary">Apply Online</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+           class="btn-outline" target="_blank">
+          <i class="fa-brands fa-google-play"></i> Download App
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="feature-section">
+  <div class="container feature-grid">
+
+    <div class="feature-image">
+      <img src="assets/images/scr1.jpeg" alt="Insurance Services">
+    </div>
+
+    <div class="feature-content">
+      <h2>Insurance & Government Services</h2>
+      <p>
+        Customers ko insurance ke sath GST, PAN, ITR jaise
+        government services bhi provide karein.
+      </p>
+
+      <ul>
+        <li>Car, Bike & Health Insurance</li>
+        <li>GST, PAN & ITR Registration</li>
+        <li>Trusted & Verified Service Providers</li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="apply-online.php" class="btn-primary">Apply Online</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+           class="btn-outline" target="_blank">
+          <i class="fa-brands fa-google-play"></i> Download App
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="feature-section light">
+  <div class="container feature-grid reverse">
+
+    <div class="feature-image">
+      <img src="assets/images/scr4.jpeg" alt="Wallet & Recharge">
+    </div>
+
+    <div class="feature-content">
+      <h2>Secure Wallet, Recharge & Money Transfer</h2>
+      <p>
+        Secure digital wallet ke sath instant money add,
+        fund request, recharge aur domestic money transfer.
+      </p>
+
+      <ul>
+        <li>Secure Wallet & Fast Settlement</li>
+        <li>Mobile & DTH Recharge Services</li>
+        <li>Domestic Money Transfer (DMT)</li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="apply-online.php" class="btn-primary">Apply Online</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+           class="btn-outline" target="_blank">
+          <i class="fa-brands fa-google-play"></i> Download App
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="company-documents">
+  <div class="container">
+
+    <h2 class="section-title">Our Company Documents</h2>
+
+    <div class="doc-slider">
+
+      <button class="doc-prev">❮</button>
+
+      <div class="doc-track">
+
+        <!-- DOCUMENT 1 -->
+        <div class="doc-item">
+          <img src="assets/images/docu1.jpeg" alt="Document 1" onclick="openDoc(this)">
+        </div>
+
+        <!-- DOCUMENT 2 -->
+        <div class="doc-item">
+          <img src="assets/images/docu2.jpeg" alt="Document 2" onclick="openDoc(this)">
+        </div>
+
+        <!-- DOCUMENT 3 -->
+        <div class="doc-item">
+          <img src="assets/images/docu3.jpeg" alt="Document 3" onclick="openDoc(this)">
+        </div>
+
+        <!-- DOCUMENT 4 -->
+        <div class="doc-item">
+          <img src="assets/images/docu4.jpeg" alt="Document 4" onclick="openDoc(this)">
+        </div>
+
+        <!-- ADD MORE IF NEEDED -->
+
+      </div>
+
+      <button class="doc-next">❯</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ZOOM MODAL -->
+<div class="doc-modal" id="docModal">
+  <span class="doc-close" onclick="closeDoc()">×</span>
+  <img id="docModalImg">
+</div>
+
+
+<section class="our-staff">
+  <div class="container">
+
+    <h2 class="section-title">Our Staff</h2>
+
+    <div class="staff-wrapper">
+
+      <!-- LEFT BUTTON -->
+      <button class="staff-btn left" onclick="scrollStaff(-1)">❮</button>
+
+      <!-- SCROLL CONTAINER -->
+      <div class="staff-scroll" id="staffScroll">
+
+        <div class="staff-card">
+          <img src="assets/images/staff1.jpg" alt="Staff">
+          <h4>Ravi Sharma</h4>
+          <span>Support Manager</span>
+        </div>
+
+        <div class="staff-card">
+          <img src="assets/images/staff2.jpg" alt="Staff">
+          <h4>Pooja Verma</h4>
+          <span>Operations Head</span>
+        </div>
+
+        <div class="staff-card">
+          <img src="assets/images/staff1.jpg" alt="Staff">
+          <h4>Amit Singh</h4>
+          <span>Technical Support</span>
+        </div>
+
+        <div class="staff-card">
+          <img src="assets/images/staff2.jpg" alt="Staff">
+          <h4>Neha Gupta</h4>
+          <span>Sales Executive</span>
+        </div>
+
+        <div class="staff-card">
+          <img src="assets/images/staff1.jpg" alt="Staff">
+          <h4>Rahul Verma</h4>
+          <span>Relationship Manager</span>
+        </div>
+
+      </div>
+
+      <!-- RIGHT BUTTON -->
+      <button class="staff-btn right" onclick="scrollStaff(1)">❯</button>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="success-rate">
+  <div class="container">
+
+    <h2 class="section-title">Transaction Success Rate</h2>
+    <p class="section-sub">
+      Our platform delivers consistently high success rates across all services
+    </p>
+
+    <div class="rate-grid">
+
+      <div class="rate-item">
+        <span>AEPS</span>
+        <div class="bar"><div class="fill" data-percent="97"></div></div>
+        <strong>97%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Aadhaar Pay</span>
+        <div class="bar"><div class="fill" data-percent="99"></div></div>
+        <strong>99%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Money Transfer</span>
+        <div class="bar"><div class="fill" data-percent="98"></div></div>
+        <strong>98%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Recharge</span>
+        <div class="bar"><div class="fill" data-percent="100"></div></div>
+        <strong>100%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>BBPS</span>
+        <div class="bar"><div class="fill" data-percent="99"></div></div>
+        <strong>99%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>PAN Card</span>
+        <div class="bar"><div class="fill" data-percent="98"></div></div>
+        <strong>98%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Payout</span>
+        <div class="bar"><div class="fill" data-percent="97"></div></div>
+        <strong>97%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Cash Deposit</span>
+        <div class="bar"><div class="fill" data-percent="98"></div></div>
+        <strong>98%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>CMS</span>
+        <div class="bar"><div class="fill" data-percent="98.5"></div></div>
+        <strong>98.50%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Kotak Bank BC Apply</span>
+        <div class="bar"><div class="fill" data-percent="99"></div></div>
+        <strong>99%</strong>
+      </div>
+
+      <div class="rate-item">
+        <span>Account Opening</span>
+        <div class="bar"><div class="fill" data-percent="100"></div></div>
+        <strong>100%</strong>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <div class="container cta-box">
+
+    <h2>
+      Digital Partner Pay <br>
+      <span>आज ही डाउनलोड करें</span>
+    </h2>
+
+    <p>
+      <b>India’s No.1 B2B Fintech Platform</b> <br>
+      AEPS, Banking, Recharge, BBPS, Money Transfer और
+      Business Services – सब कुछ एक ही App में
+    </p>
+
+    <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+       class="btn-primary"
+       target="_blank" style="background:#034a42;">
+      <i class="fa-brands fa-google-play"></i>
+      Download from Google Play
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ===== DEMO MODAL ===== -->
+<div class="demo-modal" id="demoModal">
+  <div class="demo-box">
+
+    <span class="close" onclick="closeDemo()">&times;</span>
+
+    <h2>Book Live Demo</h2>
+
+    <form>
+
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email ID" required>
+      <input type="tel" placeholder="Contact Number" required>
+      <input type="tel" placeholder="WhatsApp Number" required>
+
+      <div class="two">
+        <input type="text" placeholder="State" required>
+        <input type="text" placeholder="City" required>
+      </div>
+
+      <div class="two">
+        <input type="date" required>
+        <input type="time" required>
+      </div>
+
+      <select required>
+        <option value="">Demo kis service ke liye chahiye?</option>
+        <option>AEPS / Banking</option>
+        <option>Recharge / BBPS</option>
+        <option>Travel Services</option>
+        <option>Insurance</option>
+        <option>B2B / White Label</option>
+        <option>API / SDK Integration</option>
+      </select>
+
+      <button type="submit" class="btn-primary">
+        <i class="fa fa-paper-plane"></i> Submit Demo Request
+      </button>
+
+    </form>
+  </div>
+</div>
+<script>
+function openDemo(){
+  document.getElementById("demoModal").style.display="flex";
+}
+function closeDemo(){
+  document.getElementById("demoModal").style.display="none";
+}
+</script>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".slider-nav .dot");
+
+function showSlide(index){
+  slides.forEach((s,i)=>{
+    s.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+}
+
+function changeSlide(step){
+  currentSlide = (currentSlide + step + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+function goSlide(index){
+  currentSlide = index;
+  showSlide(currentSlide);
+}
+
+// Auto slide
+setInterval(()=>changeSlide(1), 5000);
+</script>
+<script>
+let index = 0;
+const track = document.querySelector('.testimonial-track');
+const cards = document.querySelectorAll('.testimonial-card');
+
+function slideTestimonial(step){
+  const visible = window.innerWidth < 768 ? 1 : 3;
+  index = (index + step + cards.length) % cards.length;
+  track.style.transform = `translateX(-${index * (100/visible)}%)`;
+}
+
+document.querySelector('.ts-next').onclick = ()=>slideTestimonial(1);
+document.querySelector('.ts-prev').onclick = ()=>slideTestimonial(-1);
+
+// Auto slide
+setInterval(()=>slideTestimonial(1), 4000);
+</script>
+<script>
+let docIndex = 0;
+const docTrack = document.querySelector('.doc-track');
+const docItems = document.querySelectorAll('.doc-item');
+
+function moveDoc(step){
+  const visible = window.innerWidth < 768 ? 1 : 3;
+  docIndex = (docIndex + step + docItems.length) % docItems.length;
+  docTrack.style.transform = `translateX(-${docIndex * (100/visible)}%)`;
+}
+
+document.querySelector('.doc-next').onclick = ()=>moveDoc(1);
+document.querySelector('.doc-prev').onclick = ()=>moveDoc(-1);
+
+// Auto slide
+setInterval(()=>moveDoc(1), 4000);
+
+// Zoom
+function openDoc(img){
+  document.getElementById("docModal").style.display="flex";
+  document.getElementById("docModalImg").src = img.src;
+}
+function closeDoc(){
+  document.getElementById("docModal").style.display="none";
+}
+</script>
+<script>
+function scrollStaff(direction){
+  const container = document.getElementById("staffScroll");
+  const card = container.querySelector(".staff-card");
+  const gap = 25; // same as CSS gap
+
+  const scrollAmount = card.offsetWidth + gap;
+
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: "smooth"
+  });
+}
+</script>
+<script>
+window.addEventListener("load", () => {
+  document.querySelectorAll(".fill").forEach(bar => {
+    const percent = bar.getAttribute("data-percent");
+    bar.style.width = percent + "%";
+  });
+});
+</script>
+
+<%- include('includes/footer') %>
+

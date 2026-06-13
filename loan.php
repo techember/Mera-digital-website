@@ -1,0 +1,18 @@
+<?php
+$page_title = "Loan Services";
+$page_desc  = "Offer personal, business and instant loans to customers.";
+$page_about = "Loan service helps customers apply for different types of loans digitally with minimal documentation. Retailers can earn commission by assisting customers in loan applications.";
+
+$page_image = "assets/images/neobanking.png";
+
+$points = [
+  "Personal Loan",
+  "Business Loan",
+  "Instant Loan Approval",
+  "Minimum Documentation",
+  "Attractive Commission",
+  "Trusted Financial Partners"
+];
+
+include 'service-template.php';
+?>

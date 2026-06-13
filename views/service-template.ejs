@@ -1,0 +1,53 @@
+
+
+<%- include('includes/header') %>
+
+<!-- ===== SERVICE HERO ===== -->
+<section class="service-hero">
+  <div class="container">
+    <h1><%= page_title %></h1>
+    <p><%= page_desc %></p>
+  </div>
+</section>
+
+<!-- ===== SERVICE CONTENT ===== -->
+<section class="service-content">
+  <div class="container service-grid">
+
+    <!-- LEFT : TEXT -->
+    <div class="service-text">
+      <h2>About <%= page_title %></h2>
+      <p><%= page_about %></p>
+
+      <% if (typeof points !== 'undefined' && points && points.length > 0) { %>
+      <ul class="service-points">
+        <% if (typeof points !== 'undefined') { points.forEach(function(p) { %>
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <%= p %>
+          </li>
+        <% }); } %>
+      </ul>
+      <% } %>
+    </div>
+
+    <!-- RIGHT : IMAGE -->
+    <div class="service-image">
+      <img src="<%= page_image %>" alt="<%= page_title %>">
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="service-cta">
+  <div class="container">
+    <h3>Start <%= page_title %> Today</h3>
+    <p>Join Mera Digital APS and grow your digital service business.</p>
+    <a href="contact.php" class="btn-primary">
+      <i class="fa-solid fa-phone"></i> Contact Us
+    </a>
+  </div>
+</section>
+
+<%- include('includes/footer') %>

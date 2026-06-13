@@ -1,0 +1,284 @@
+<style>
+/* APP STORE ICON ROW */
+.footer-apps{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:10px;
+}
+
+.app-btn{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:18px;
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+}
+
+/* Colors */
+.app-btn.google{
+  background:#34a853;
+}
+.app-btn.indus{
+  background:#ff9800;
+}
+.app-btn.apple{
+  background:#000;
+}
+
+.app-btn:hover{
+  transform:translateY(-3px);
+  opacity:0.9;
+}
+
+.footer-social{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin:12px 0 20px;
+  flex-wrap:nowrap; /* 👈 forces one row */
+}
+
+.footer-social a{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#1b2a6b;
+  color:#fff;
+  font-size:16px;
+  transition:0.3s;
+  text-decoration:none;
+}
+
+.footer-social a:hover{
+  background:#ff6a00;
+  transform:translateY(-3px);
+}
+
+/* Mobile small screens */
+@media(max-width:480px){
+  .footer-social{
+    gap:10px;
+  }
+  .footer-social a{
+    width:34px;
+    height:34px;
+    font-size:15px;
+  }
+}
+/* ========== FOOTER SOCIAL ICONS FIX ========== */
+.footer-social{
+  display:flex;
+  justify-content:flex-start; /* left aligned as in screenshot */
+  align-items:center;
+  gap:12px;
+  margin:14px 0 20px;
+}
+
+.footer-social a{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  color:#fff;
+  text-decoration:none;
+  transition:0.3s;
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* BRAND COLORS – VERY IMPORTANT */
+.footer-social a:nth-child(1){ background:#ff0000; }   /* YouTube */
+.footer-social a:nth-child(2){ background:#e1306c; }   /* Instagram */
+.footer-social a:nth-child(3){ background:#1877f2; }   /* Facebook */
+.footer-social a:nth-child(4){ background:#25d366; }   /* WhatsApp */
+.footer-social a:nth-child(5){ background:#229ed9; }   /* Telegram */
+.footer-social a:nth-child(6){ background:#0a66c2; }   /* LinkedIn */
+
+.footer-social a:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ========== DOWNLOAD APP ICONS FIX ========== */
+.footer-apps{
+  display:flex;
+  gap:14px;
+  margin:12px 0 22px;
+}
+
+.footer-apps .app-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  color:#fff;
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* App colors */
+.app-btn.google{ background:#34a853; }
+.app-btn.indus{ background:#ff9800; }
+.app-btn.apple{ background:#000; }
+
+/* ========== QR FIX ========== */
+.footer-qr{
+  width:120px;
+  background:#fff;
+  padding:6px;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+</style>
+
+<footer class="footer-4col">
+  <div class="container">
+    <div class="footer-grid-4">
+
+      <!-- COLUMN 1 -->
+      <div class="fcol">
+        <img src="assets/images/logo.png" class="footer-logo">
+
+        <p class="footer-desc">
+          Mera Digital APS provides AEPS, Money Transfer, Recharge, Bill Payment,
+          Travel & many more digital services across India.
+        </p>
+
+        <p><i class="fa-solid fa-location-dot"></i>
+          Ground Floor, Office No. 82, Bari Kehda, Aonla, Bareilly (UP)
+        </p>
+
+        <p><i class="fa-solid fa-phone"></i> +91 70888 98725</p>
+        <p><i class="fa-solid fa-envelope"></i> help.com@meradigitalaps.com</p>
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div class="fcol">
+        <h4>Company Policy</h4>
+        <a href="https://meradigitalaps.com/term">Terms & Conditions</a>
+        <a href="https://meradigitalaps.com/privacy">Privacy Policy</a>
+        <a href="https://meradigitalaps.com/refund-and-cancellation">Refund Policy</a>
+
+        <h4 class="mt">Registration</h4>
+        <p>GST: 09FQBPR9639J1ZZ</p>
+        <p>UDYAM: UP-15-0017747</p>
+      </div>
+
+      <!-- COLUMN 3 -->
+      <div class="fcol">
+        <h4>Our Services</h4>
+        <a href="#">AEPS</a>
+        <a href="#">Money Transfer</a>
+        <a href="#">Aadhaar Pay</a>
+        <a href="#">BBPS</a>
+        <a href="#">Recharge</a>
+        <a href="#">PAN Card</a>
+        <a href="#">Insurance & LIC</a>
+        <a href="#">Loan</a>
+        <a href="#">FASTag</a>
+      </div>
+
+      <!-- COLUMN 4 -->
+      <div class="fcol">
+        <h4>Follow Us</h4>
+
+<div class="footer-social">
+  <a href="https://www.youtube.com/@meradigitalaps_official" target="_blank" title="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://www.instagram.com/meradigitalaps_" target="_blank" title="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/share/1NJGzCu1yv/" target="_blank" title="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://whatsapp.com/channel/0029Vb6Xac9Gk1FmZbg5kD3G" target="_blank" title="WhatsApp Channel">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://t.me/+kuz7ioMUeC1iMjM9" target="_blank" title="Telegram">
+    <i class="fab fa-telegram-plane"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/mera-digital-aps-daudega-to-mera-desh-daudega-070b9424a" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="https://aratt.ai/@meradigitalapsdaudega" target="_blank" title="Aratt.ai">
+  <i class="fa-solid fa-globe"></i>
+</a>
+
+</div>
+
+
+        <h4 class="mt">Download App</h4>
+
+        <div class="footer-apps">
+          <a href="https://play.google.com/store/apps/details?id=com.aps.partners"
+             target="_blank" class="app-btn google" title="Google Play">
+            <i class="fab fa-google-play"></i>
+          </a>
+
+          <a href="#" class="app-btn indus" title="Indus Appstore (Coming Soon)">
+            <i class="fa-solid fa-store"></i>
+          </a>
+
+          <a href="#" class="app-btn apple" title="App Store (Coming Soon)">
+            <i class="fab fa-apple"></i>
+          </a>
+        </div>
+
+        <h4 class="mt">Scan QR</h4>
+        <img src="assets/images/qr.png" class="footer-qr">
+
+        <h4 class="mt">Digital Partner Pay</h4>
+        <p>Authorized Digital & Banking Services Partner</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 <strong>Mera Digital APS</strong>. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- WHATSAPP POPUP BUTTON -->
+<a href="https://wa.me/919675695450?text=Hello%20Mera%20Digital%20APS%20Team,%20I%20need%20help"
+   class="whatsapp-float"
+   target="_blank"
+   title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+<script>
+function openTab(tabId){
+  // remove active
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-content').forEach(tab=>{
+    tab.classList.remove('active');
+  });
+
+  // add active
+  event.target.closest('.tab-btn').classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>

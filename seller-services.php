@@ -1,0 +1,24 @@
+<?php include 'includes/header.php'; ?>
+
+<section class="service-page">
+  <div class="container service-grid">
+    <div class="service-text">
+      <h1>Seller & Delivery Services</h1>
+      <p>
+        Become a seller or delivery partner with top platforms
+        using Mera Digital Pay.
+      </p>
+      <ul>
+        <li>Flipkart Seller Apply</li>
+        <li>Amazon Seller Apply</li>
+        <li>ONDC Seller Apply</li>
+        <li>Flipkart Delivery Job Apply</li>
+      </ul>
+    </div>
+    <div class="service-image">
+      <img src="assets/images/travel.png">
+    </div>
+  </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

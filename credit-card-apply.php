@@ -1,0 +1,18 @@
+<?php
+$page_title = "Credit Card Apply";
+$page_desc  = "Apply for credit cards from leading banks with minimum documentation.";
+$page_about = "Credit Card Apply service enables customers to apply for credit cards digitally. Retailers can assist customers in choosing suitable cards and earn commission on every approved application.";
+
+$page_image = "assets/images/egov.png";
+
+$points = [
+  "Credit Cards from Leading Banks",
+  "Online Application Process",
+  "Minimum Documentation",
+  "Quick Approval Assistance",
+  "Attractive Offers & Benefits",
+  "Retailer Earning Opportunity"
+];
+
+include 'service-template.php';
+?>

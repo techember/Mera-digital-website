@@ -1,0 +1,18 @@
+<?php
+$page_title = "SBM FD Card Apply";
+$page_desc  = "Apply for SBM FD backed cards with secure banking benefits.";
+$page_about = "SBM FD Card service allows customers to apply for fixed deposit backed cards. This service is ideal for customers looking for secure card options while retailers earn commission on every successful application.";
+
+$page_image = "assets/images/egov.png";
+
+$points = [
+  "FD Backed Card Facility",
+  "Secure Banking Product",
+  "Easy Application Process",
+  "Low Risk Financial Product",
+  "Fast Issuance",
+  "Commission for Retailers"
+];
+
+include 'service-template.php';
+?>

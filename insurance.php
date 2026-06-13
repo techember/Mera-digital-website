@@ -1,0 +1,24 @@
+<?php include 'includes/header.php'; ?>
+
+<section class="service-page">
+  <div class="container service-grid">
+    <div class="service-text">
+      <h1>Insurance Services</h1>
+      <p>
+        Provide insurance services to your customers and earn fixed commission
+        on every policy through Mera Digital Pay.
+      </p>
+      <ul>
+        <li>Health Insurance</li>
+        <li>Motor Insurance</li>
+        <li>Shop Insurance</li>
+        <li>Device Insurance</li>
+      </ul>
+    </div>
+    <div class="service-image">
+      <img src="assets/images/insurance.png">
+    </div>
+  </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

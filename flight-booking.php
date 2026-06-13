@@ -1,0 +1,18 @@
+<?php
+$page_title = "Flight Booking";
+$page_desc  = "Domestic and international flight ticket booking services.";
+$page_about = "Flight Booking service enables retailers to book air tickets for customers at competitive prices. Customers can choose from multiple airlines while retailers earn commission on every booking.";
+
+$page_image = "assets/images/travel.png";
+
+$points = [
+  "Domestic Flight Booking",
+  "International Flight Booking",
+  "Multiple Airline Options",
+  "Best Fare Availability",
+  "Easy Cancellation Support",
+  "Commission on Every Ticket"
+];
+
+include 'service-template.php';
+?>

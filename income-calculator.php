@@ -1,0 +1,121 @@
+<?php include 'includes/header.php'; ?>
+
+<!-- ================= HERO ================= -->
+<section class="income-hero">
+  <div class="container">
+    <h1>Income Calculator</h1>
+    <p>Estimate your daily & monthly earnings with Mera Digital Pay</p>
+  </div>
+</section>
+
+<!-- ================= CALCULATOR ================= -->
+<section class="income-wrap">
+  <div class="container income-grid">
+
+    <!-- LEFT : SERVICES -->
+    <div class="income-form">
+
+      <!-- BANKING -->
+      <h3>Banking Services</h3>
+
+      <div class="row"><label>AEPS Services (₹14)</label><input type="number" value="1" data-rate="14" class="calc"></div>
+      <div class="row"><label>Cash Deposit (₹14)</label><input type="number" value="1" data-rate="14" class="calc"></div>
+      <div class="row"><label>Aadhaar Pay (₹25)</label><input type="number" value="1" data-rate="25" class="calc"></div>
+      <div class="row"><label>M POS ATM (₹14)</label><input type="number" value="1" data-rate="14" class="calc"></div>
+      <div class="row"><label>PPI DMT JIO (₹20)</label><input type="number" value="1" data-rate="20" class="calc"></div>
+
+      <!-- UTILITY -->
+      <h3>Utility Services</h3>
+
+      <div class="row"><label>BBPS Services (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+      <div class="row"><label>Recharge (₹10)</label><input type="number" value="1" data-rate="10" class="calc"></div>
+      <div class="row"><label>LIC Payment (₹20)</label><input type="number" value="1" data-rate="20" class="calc"></div>
+      <div class="row"><label>CMS Airtel (₹100)</label><input type="number" value="1" data-rate="100" class="calc"></div>
+      <div class="row"><label>Airtel Wi-Fi (₹300)</label><input type="number" value="1" data-rate="300" class="calc"></div>
+
+      <!-- TRAVEL -->
+      <h3>Travel Services</h3>
+
+      <div class="row"><label>Train Booking (₹40)</label><input type="number" value="1" data-rate="40" class="calc"></div>
+      <div class="row"><label>Bus Booking (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+      <div class="row"><label>Flight Booking (₹100)</label><input type="number" value="1" data-rate="100" class="calc"></div>
+      <div class="row"><label>Hotel Booking (₹100)</label><input type="number" value="1" data-rate="100" class="calc"></div>
+
+      <!-- INSURANCE & LOAN -->
+      <h3>Insurance & Loan</h3>
+
+      <div class="row"><label>Insurance (₹100)</label><input type="number" value="1" data-rate="100" class="calc"></div>
+      <div class="row"><label>Loan Apply (₹100)</label><input type="number" value="1" data-rate="100" class="calc"></div>
+
+      <!-- GOVERNMENT -->
+      <h3>Government Services</h3>
+
+      <div class="row"><label>NSDL PAN Card (₹10)</label><input type="number" value="1" data-rate="10" class="calc"></div>
+      <div class="row"><label>ITR Registration (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+      <div class="row"><label>GST Registration (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+      <div class="row"><label>ISO Registration (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+      <div class="row"><label>Udyam Registration (₹50)</label><input type="number" value="1" data-rate="50" class="calc"></div>
+
+      <!-- ACCOUNT SERVICES -->
+      <h3>Account Services</h3>
+
+      <div class="row"><label>NSDL Account Opening (₹18)</label><input type="number" value="1" data-rate="18" class="calc"></div>
+      <div class="row"><label>Kotak Account Opening (₹250)</label><input type="number" value="1" data-rate="250" class="calc"></div>
+      <div class="row"><label>SBM FD Card Apply (₹250)</label><input type="number" value="1" data-rate="250" class="calc"></div>
+      <div class="row"><label>Credit Card Apply (₹500)</label><input type="number" value="1" data-rate="500" class="calc"></div>
+
+      <!-- SELLER / DELIVERY -->
+      <h3>Seller & Delivery</h3>
+
+      <div class="row"><label>Flipkart Seller Apply (₹200)</label><input type="number" value="1" data-rate="200" class="calc"></div>
+      <div class="row"><label>Amazon Seller Apply (₹200)</label><input type="number" value="1" data-rate="200" class="calc"></div>
+      <div class="row"><label>ONDC Seller Apply (₹200)</label><input type="number" value="1" data-rate="200" class="calc"></div>
+      <div class="row"><label>Flipkart Delivery Job Apply (₹20)</label><input type="number" value="1" data-rate="20" class="calc"></div>
+      <div class="row"><label>Shopping Services (₹10)</label><input type="number" value="1" data-rate="10" class="calc"></div>
+
+    </div>
+
+    <!-- RIGHT : SUMMARY -->
+    <div class="income-summary">
+      <h2>Income Summary</h2>
+
+      <div class="summary-box">
+        <span>Income Per Day</span>
+        <strong id="daily">₹0</strong>
+      </div>
+
+      <div class="summary-box highlight">
+        <span>Total Income / Month</span>
+        <strong id="monthly">₹0</strong>
+      </div>
+
+      <p class="note">
+        * Monthly income calculated for 30 working days
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function calculate(){
+  let total = 0;
+  document.querySelectorAll('.calc').forEach(el=>{
+    const qty = parseInt(el.value) || 0;
+    const rate = parseInt(el.dataset.rate) || 0;
+    total += qty * rate;
+  });
+
+  document.getElementById("daily").innerText = "₹" + total.toLocaleString();
+  document.getElementById("monthly").innerText = "₹" + (total * 30).toLocaleString();
+}
+
+document.querySelectorAll('.calc').forEach(el=>{
+  el.addEventListener("input", calculate);
+});
+
+calculate();
+</script>
+
+<?php include 'includes/footer.php'; ?>

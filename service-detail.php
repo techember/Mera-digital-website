@@ -1,0 +1,41 @@
+<?php include 'includes/header.php'; ?>
+
+<section class="container service-detail">
+  <div>
+    <img src="assets/images/aeps.png" width="100%">
+  </div>
+
+  <div>
+    <h1>AEPS (Aadhaar Enabled Payment System)</h1>
+    <p>
+      AEPS is a secure Aadhaar based payment system by NPCI.
+      Retailers can provide cash withdrawal, balance enquiry
+      and mini statement using biometric authentication.
+    </p>
+
+    <ul>
+      <li>✔ Cash Withdrawal</li>
+      <li>✔ Balance Enquiry</li>
+      <li>✔ Mini Statement</li>
+      <li>✔ High Commission</li>
+    </ul>
+
+    <div class="rate">
+      Transaction Success Rate: <strong>97%</strong>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+<h2>Business Models</h2>
+<div class="service-grid">
+<div class="service-card">Retailer</div>
+<div class="service-card">Distributor</div>
+<div class="service-card">District Franchise</div>
+<div class="service-card">State Franchise</div>
+<div class="service-card">B2B Portal</div>
+<div class="service-card">API Provider</div>
+</div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

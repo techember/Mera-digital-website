@@ -1,0 +1,18 @@
+<?php
+$page_title = "Kotak BC Apply";
+$page_desc  = "Become a Kotak Bank Business Correspondent and offer banking services.";
+$page_about = "Kotak BC Apply service enables retailers to partner with Kotak Bank as a Business Correspondent. BCs can provide cash withdrawal, account opening and other digital banking services.";
+
+$page_image = "assets/images/business.png";
+
+$points = [
+  "Kotak Bank Authorized BC",
+  "Digital Account Opening",
+  "Cash Withdrawal Services",
+  "Trusted Banking Partner",
+  "Regular Commission Income",
+  "Easy Onboarding Process"
+];
+
+include 'service-template.php';
+?>

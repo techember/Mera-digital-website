@@ -1,0 +1,141 @@
+<%- include('includes/header') %>
+
+<section class="page-title">
+  <div class="container">
+    <h1>Our Services</h1>
+    <p>All Digital &amp; Banking Services at One Place</p>
+  </div>
+</section>
+
+<section class="services-list">
+  <div class="container service-grid">
+
+    <div class="service-box" onclick="openServiceModal('AEPS', 'AEPS allows retailers to offer basic banking services using biometric authentication. Customers can withdraw cash, check balance and get mini statements without visiting a bank branch.', ['Cash Withdrawal using Aadhaar','Balance Enquiry','Mini Statement','Secure Biometric Authentication','Works Across All Major Banks','High Commission Per Transaction'])">AEPS</div>
+
+    <div class="service-box" onclick="openServiceModal('Money Transfer', 'Send money instantly to any bank account across India. Fast, secure and reliable domestic money transfer service for your customers.', ['Transfer to Any Bank Account','Instant Settlement','High Transaction Limit','Low Commission Charges','24/7 Service Available','Real-time Status Updates'])">Money Transfer</div>
+
+    <div class="service-box" onclick="openServiceModal('Recharge', 'Offer mobile recharge, DTH recharge and data card recharge services to your customers instantly with best commission rates.', ['All Operator Recharge','DTH Recharge','Data Card Recharge','Instant Processing','Best Commission Rates','Easy to Use'])">Recharge</div>
+
+    <div class="service-box" onclick="openServiceModal('BBPS', 'Pay utility bills like electricity, water, gas, and more using BBPS. One-stop solution for all bill payment needs.', ['Electricity Bill Payment','Water Bill Payment','Gas Bill Payment','Broadband & DTH Bills','Fast Confirmation','RBI Regulated Platform'])">BBPS</div>
+
+    <div class="service-box" onclick="openServiceModal('Insurance', 'Offer life, health, motor and shop insurance services to your customers and earn high commission on every policy sold.', ['Life Insurance','Health Insurance','Motor Insurance','Shop Insurance','Device Insurance','High Commission Per Policy'])">Insurance</div>
+
+    <div class="service-box" onclick="openServiceModal('Travel Booking', 'Book flights, buses, hotels and IRCTC train tickets for your customers. One platform for all travel needs.', ['Flight Ticket Booking','Bus Ticket Booking','Hotel Booking','IRCTC Train Tickets','Instant Confirmation','Best Prices Guaranteed'])">Travel Booking</div>
+
+    <div class="service-box" onclick="openServiceModal('PAN Card', 'Help customers apply for new PAN card or make corrections in existing PAN card easily through our platform.', ['New PAN Card Application','PAN Card Correction','Quick Processing','Doorstep Delivery','Status Tracking','Affordable Charges'])">PAN Card</div>
+
+    <div class="service-box" onclick="openServiceModal('Neo Banking', 'Open digital bank accounts, apply for credit cards and access modern banking features for your customers.', ['Digital Bank Account Opening','Credit Card Apply','Kotak BC Apply','NSDL BC Apply','SBM FD Card','Physical Card Services'])">Neo Banking</div>
+
+  </div>
+</section>
+
+<!-- ===== SERVICE MODAL ===== -->
+<div id="serviceModal" class="service-modal-overlay" onclick="closeServiceModal(event)">
+  <div class="service-modal-box">
+    <button class="modal-close-btn" onclick="closeServiceModal()">&times;</button>
+    <div class="modal-icon"><i class="fa-solid fa-star"></i></div>
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+    <ul id="modal-points" class="service-points"></ul>
+    <a href="contact.php" class="btn-primary" style="display:inline-block;margin-top:18px;">
+      <i class="fa-solid fa-phone"></i> Contact Us
+    </a>
+  </div>
+</div>
+
+<style>
+.service-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.service-modal-overlay.active {
+  display: flex;
+}
+.service-modal-box {
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px 36px 32px;
+  max-width: 480px;
+  width: 92%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: slideUpModal 0.3s ease;
+  text-align: left;
+}
+@keyframes slideUpModal {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close-btn:hover { color: #e63946; }
+.modal-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35, #e63946);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.modal-icon i { color: #fff; font-size: 22px; }
+#modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 6px;
+}
+#modal-desc {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+</style>
+
+<script>
+function openServiceModal(title, about, points) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-desc').textContent = about;
+  var ul = document.getElementById('modal-points');
+  ul.innerHTML = '';
+  if (points && points.length) {
+    points.forEach(function(p) {
+      var li = document.createElement('li');
+      li.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + p;
+      ul.appendChild(li);
+    });
+  }
+  document.getElementById('serviceModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal(e) {
+  if (!e || e.target === document.getElementById('serviceModal')) {
+    document.getElementById('serviceModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceModal();
+});
+</script>
+
+<%- include('includes/footer') %>
